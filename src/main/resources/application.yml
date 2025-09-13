@@ -1,0 +1,57 @@
+# application.yml
+spring:
+  application:
+    name: pokemonApi
+
+  # 데이터베이스 설정
+  datasource:
+    url: jdbc:h2:file:./data/pokemondb # 파일 DB
+    # url: jdbc:h2:mem:pokemondb # 메모리DB
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  # H2 콘솔 설정 (개발용)
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+  # JPA 설정
+  jpa:
+    hibernate:
+      ddl-auto: update # 구조 변경시만 업데이트
+    #ddl-auto: create-drop  # 앱 시작시 테이블 생성, 종료시 삭제
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true  # SQL 쿼리 출력
+    properties:
+      hibernate:
+        format_sql: true  # SQL 포맷팅
+
+  # Redis 캐시 설정
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  cache:
+    type: redis
+
+# 서버 설정
+server:
+  port: 80
+
+# 포켓몬 데이터 로드 설정
+app:
+  data:
+    initial-load-enabled: true    # 초기 데이터 로드 활성화
+    initial-load-count: 151       # 처음 로드할 포켓몬 수 (1세대)
+    batch-size: 10                # 배치 크기
+
+# 로깅 설정
+logging:
+  level:
+    root: INFO
+    com.pokeapi: DEBUG              # 우리 애플리케이션 로그
+    org.hibernate.SQL: DEBUG       # JPA 쿼리 로그
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
