@@ -281,7 +281,7 @@ public class JpaAnnotationTest  {
     }
 
     @Test
-    @DisplayName("실습4: @OneTomany와 @manyToOne - 관계 매핑")
+    @DisplayName("실습4: @OneToMany와 @ManyToOne - 관계 매핑")
     void test_04_OneToManyRelationship() {
         System.out.println("\n" + "=".repeat(50));
         System.out.println("@OneToMany와 @ManyToOne - 포켓몬과 타입 관계 설정");
