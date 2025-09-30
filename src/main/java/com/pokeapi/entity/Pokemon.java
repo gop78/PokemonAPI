@@ -51,6 +51,10 @@ public class Pokemon {
      * fetch = FatchType.LAZY: 필요할 때만 로드 (성능 최적화)
      */
     @OneToMany(mappedBy = "pokemon", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+//    @OneToMany(mappedBy = "pokemon", cascade = CascadeType.PERSIST, fetch = FetchType.LAZY) // 테스트 코드
+//    @OneToMany(mappedBy = "pokemon", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY) // 테스트 코드
+//    @OneToMany(mappedBy = "pokemon", cascade = CascadeType.MERGE, fetch = FetchType.LAZY) // 테스트 코드
+//    @OneToMany(mappedBy = "pokemon", fetch = FetchType.LAZY) // 테스트 코드
     private List<PokemonType> types = new ArrayList<>();
 
     /**
